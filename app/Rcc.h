@@ -43,7 +43,7 @@ struct RCC_Type{
 	volatile uint32_t RCC_DCKCFGR;
 };
 
-#define RCC_reg	((RCC_t*)RCC_BASE_ADDRESS)
+#define rcc	((RCC_t*)RCC_BASE_ADDRESS)
 
 #define GPIOx_ENABLE_CLOCK(x)	(0x00100000 | (1 << (x)))
 #define GPIOx_RESET(x)			  (1 << (x))
@@ -58,7 +58,7 @@ struct RCC_Type{
 #define INTERNAL_CLOCK	  16000000
 #define CRYSTAL_CLOCK	   8000000
 
-#define ENABLE_APB2_PRESCALE	((RCC_reg->RCC_CFGR >> 15) & 1)
+#define ENABLE_APB2_PRESCALE	((rcc->RCC_CFGR >> 15) & 1)
 
 uint32_t getSystemClock();
 uint32_t getAPB2Clock(uint32_t sysClock);

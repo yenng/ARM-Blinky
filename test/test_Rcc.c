@@ -2,20 +2,29 @@
 #include "Register.h"
 #include "Rcc.h"
 #include "Gpio.h"
-#include "HostRcc.h"
+#include "Host.h"
 
 void setUp(void){
-  RCC_reg->RCC_AHB1ENR  = 0;
-  RCC_reg->RCC_AHB1RSTR = 0xFFFFFFFF;
+  // RCC_reg->RCC_AHB1ENR  = 0;
+  // RCC_reg->RCC_AHB1RSTR = 0xFFFFFFFF;
 }
 
 void tearDown(void){}
 
-void test_Rcc_not_reset_and_clock_GpioA(void){
-  gpioUnresetEnableClock(PORTA);
-  
-  TEST_ASSERT_EQUAL(1, RCC_reg->RCC_AHB1ENR & 1);
-  TEST_ASSERT_EQUAL(0, RCC_reg->RCC_AHB1RSTR & 1);
-  
-  TEST_ASSERT_EQUAL(&HostGpioA, PORTA);
+void test_module_generator_needs_to_be_implemented(void)
+{
+	TEST_IGNORE_MESSAGE("Implement me!");
+}
+
+void test_notResetAndClockGpioA(void){
+	rcc->RCC_AHB1ENR = 0;
+	rcc->RCC_AHB1RSTR = 0xFFFFFFFF;
+	
+	//notResetAndClockGpioA();
+	gpioUnresetEnableClock(PORTA);
+	
+	TEST_ASSERT_EQUAL(1,rcc->RCC_AHB1ENR & 1);
+	TEST_ASSERT_EQUAL(0,rcc->RCC_AHB1RSTR & 1);
+	
+	TEST_ASSERT_EQUAL_HEX32(rcc, HostRcc);
 }

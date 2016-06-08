@@ -3,8 +3,8 @@
 void gpioUnresetEnableClock(GPIO* port){
 	int valToShift = ((int)port - ((int)GPIOA_BASE_ADDRESS))/(0x400);
 
-	RCC_reg->RCC_AHB1RSTR	&= ~GPIOx_RESET(valToShift);
-	RCC_reg->RCC_AHB1ENR	|= GPIOx_ENABLE_CLOCK(valToShift);
+	rcc->RCC_AHB1RSTR	&= ~GPIOx_RESET(valToShift);
+	rcc->RCC_AHB1ENR	|= GPIOx_ENABLE_CLOCK(valToShift);
 }
 
 /**

@@ -4,8 +4,7 @@
 #include <stdint.h>
 
 #include "Host.h"
-#define RCC_BASE_ADDRESS        ((uint32_t)HostRcc)
-#define GPIOG_BASE_ADDRESS      ((uint32_t)HostGpioG)
+#define RCC_BASE_ADDRESS        0x40023800
 
 #define GPIOA_BASE_ADDRESS      0x40020000
 #define GPIOB_BASE_ADDRESS      0x40020400

@@ -6,5 +6,11 @@
 
 extern void *HostRcc;
 extern void *HostGpioG;
+extern void *HostGpioF;
+extern void *HostGpioE;
+extern void *HostGpioD;
+extern void *HostGpioC;
+extern void *HostGpioB;
+extern void *HostGpioA;
 
 #endif	//__Host_H__
